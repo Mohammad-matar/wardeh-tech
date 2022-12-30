@@ -20,9 +20,11 @@
     width: 50%;
 }
 
+
 .product_image img {
     width: 600px;
     height: 600px;
+    border-radius: 20px;
 }
 
 .product_info {
