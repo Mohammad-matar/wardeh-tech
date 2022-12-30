@@ -5,6 +5,11 @@
     background-color: #29363F;
     height: 100vh;
 }
+.main_login_container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 
 .login_header {
     display: flex;
@@ -41,6 +46,7 @@
     background-color: transparent;
     border: 1px solid #929AA0;
     border-radius: 6px;
+    color: #fff;
 }
 
 .login_inputs_container::placeholder {
@@ -59,7 +65,7 @@
 .login-eye {
     position: absolute;
     right: 35%;
-    bottom: 44%;
+    bottom: 43%;
     color: #FFFFFF;
 }
 
@@ -87,5 +93,5 @@
 }
 
 .login-foot span {
-    color: #0EC821;
+    color: #6ED9A1;
 }

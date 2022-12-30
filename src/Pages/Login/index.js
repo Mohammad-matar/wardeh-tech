@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import logo from '../../images/logo.png'
-import { AiOutlineEye } from 'react-icons/ai'
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 import "./style.css"
 
@@ -8,12 +8,12 @@ export default function Login() {
   const [inputType, setInputType] = useState("password");
 
   const togglePassword = () => {
-      if (inputType === "password") {
-        setInputType("text");
-      } else {
-        setInputType("password");
-      }
-    };
+    if (inputType === "password") {
+      setInputType("text");
+    } else {
+      setInputType("password");
+    }
+  };
   return (
     <div className='login_container'>
       <div className='main_login_container'>
@@ -26,8 +26,24 @@ export default function Login() {
           <form className='login_inputs_container'>
             <input type="text" placeholder="Email Address" />
             <div className='login_pw_input'>
-              <input type="password" placeholder="Password"/>
-              <AiOutlineEye className='login-eye' onClick={togglePassword} />
+              <input
+                className="input"
+                name="password"
+                type={inputType}
+                placeholder="Password"
+                required
+              />
+              {inputType === "password" ? (
+                <AiOutlineEye
+                  className='login-eye'
+                  onClick={() => togglePassword()}
+                />
+              ) : (
+                <AiOutlineEyeInvisible
+                  className='login-eye'
+                  onClick={() => togglePassword()}
+                />
+              )}
             </div>
 
             <button className='login_btn'>

@@ -4,16 +4,15 @@
     justify-content: space-between;
     background-color: #33414B;
     padding: 10px 81px 30px 74px;
-    gap: 291px;
-    isolation: isolate;
 }
 
 .navbar_logo {
     display: flex;
     align-items: center;
+    gap: 11px;
 }
 
-.navbar_logo img {
+.logo {
     width: 32.73px;
     height: 24px;
 }
@@ -24,21 +23,18 @@
 
 .navbar_searchbar {
     box-sizing: border-box;
-    width: 488.86px;
-    height: 52px;
-    border: 1px solid #DFF5EA;
-    border-radius: 40px;
+    position: relative;
 }
 
 .navbar_searchbar input {
     background-color: transparent;
     border: 0;
     color: #fff;
-    position: absolute;
-    width: 360.86px;
-    left: 476.58px;
-    top: 18px;
-    height: 35px;
+    width: 488.86px;
+    height: 52px;
+    border: 1px solid #DFF5EA;
+    border-radius: 40px;
+    padding: 0 33px;
 }
 
 .ipt-placeholder::placeholder {
@@ -47,15 +43,22 @@
 
 .navbar-search-icon {
     position: absolute;
-    top: 3.5%;
-    right: 33%;
+    top: 25%;
+    right: 14px;
     font-size: 25px;
     background: #6ED9A1;
-    border-radius: 15px;
-
+    border-radius: 50%;
+    padding: 3px;
+    box-sizing: border-box;
 }
 
 .navbar_static_icon {
-    color: white;
-    height: 8px;
+    display: flex;
+    gap: 20px;
+    color: #fff;
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
 }

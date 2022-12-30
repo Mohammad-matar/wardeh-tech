@@ -1,19 +1,48 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+
+import './style.css'
 
 export default function CategorySubmenu() {
+  const [categories, setCategories] = useState()
+  const [isloading, setIsloading] = useState(true)
+
+  useEffect(() => {
+    getCategories()
+  }, [])
+  const getCategories = async () => {
+    await axios.get('https://fakestoreapi.com/products/categories')
+      .then(res => {
+        setCategories(res.data);
+        console.log(res.data)
+        setIsloading(false);
+      })
+      .catch(err => { console.log(err) })
+  }
   return (
-    <div>
+    <div className='categorysubmenu_container'>
+      <Link to="/" className='all_categories'>All Categories</Link>
+      <hr />
       <ul>
-        <li><a href="#">All Categories</a></li>
-        <li><a href="#">Fashion</a></li>
-        <li><a href="#">Furniture</a></li>
-        <li><a href="#">Kids toys</a></li>
-        <li><a href="#">Furniture</a></li>
-        <li><a href="#">Kitchen</a></li>
-        <li><a href="#">Books</a></li>
-        <li><a href="#">Sports</a></li>
-        <li><a href="#">Sports</a></li>
+        {isloading ? <></> : categories.map((category) => {
+          return (
+            <li>
+              <NavLink
+                to={"/category"}
+                className={({ isActive }) =>
+                  isActive ? "active" : undefined
+                }
+              >
+                {category}
+              </NavLink>
+            </li>
+          )
+        })}
+
+
       </ul>
+
     </div>
   )
 }
