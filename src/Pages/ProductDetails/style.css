@@ -116,3 +116,6 @@
     border: 0;
     align-self: center;
 }
+.back_btn{
+    cursor: pointer;
+}

@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     width: 17%;
+    cursor: pointer;
 }
 
 .home_card_container {

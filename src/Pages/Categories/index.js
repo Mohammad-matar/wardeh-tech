@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Pagination from '../../Components/Pagination'
 import ProductCard from '../../Components/ProductCard'
 import './style.css'
 
@@ -17,12 +18,12 @@ export default function Categories() {
     await axios.get(`https://fakestoreapi.com/products/category/${params.category}`)
       .then(res => {
         setData(res.data);
-        console.log(res.data)
         setIsloading(false);
       })
       .catch(err => { console.log(err) })
   }
   return (
+    <>
     <div>
       <div className='categories_title'>
         <div className='overlay'></div>
@@ -44,11 +45,13 @@ export default function Categories() {
           </div>
         ) : data.map((product) => {
           return (
-            <ProductCard product={product} withCategory={false} />
+            <ProductCard key={product.id} product={product} withCategory={false} />
           )
         })}
 
       </div>
     </div>
+    <Pagination/>
+    </>
   )
 }

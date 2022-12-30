@@ -15,7 +15,6 @@ export default function CategorySubmenu() {
     await axios.get('https://fakestoreapi.com/products/categories')
       .then(res => {
         setCategories(res.data);
-        console.log(res.data)
         setIsloading(false);
       })
       .catch(err => { console.log(err) })
@@ -27,7 +26,7 @@ export default function CategorySubmenu() {
       <ul>
         {isloading ? <></> : categories.map((category) => {
           return (
-            <li>
+            <li key={category}>
               <NavLink
                 to={`/categories/${category}`}
                 className={({ isActive }) =>

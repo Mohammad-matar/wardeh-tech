@@ -1,0 +1,19 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 44px;
+    color: #DFF5EA;
+    gap: 12px;
+}
+
+
+.pagination_number {
+    text-align: center;
+    border: 1px solid #b7b7b7;
+    width: 88px;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 14px;
+   
+}

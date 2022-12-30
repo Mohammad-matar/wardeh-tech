@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Pagination from '../../Components/Pagination'
 import ProductCard from '../../Components/ProductCard'
 import "./style.css"
 
@@ -12,15 +13,15 @@ export default function Home() {
   }, [])
 
   const getProduct = async () => {
-    await axios.get('https://fakestoreapi.com/products')
+    await axios.get('https://fakestoreapi.com/products?limit=10')
       .then(res => {
         setData(res.data);
-        console.log(res.data)
         setIsloading(false);
       })
       .catch(err => { console.log(err) })
   }
   return (
+    <>
     <div className='home_main_container'>
       {isloading ? (
         <div className='lds-main '>
@@ -37,11 +38,12 @@ export default function Home() {
         </div>
       ) : data.map((product) => {
         return (
-          <ProductCard product={product} />
+          <ProductCard key={product.id} product={product} />
         )
       })}
-
     </div>
+      <Pagination />
+    </>
 
   )
 }

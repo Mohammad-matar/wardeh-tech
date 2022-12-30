@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
-import logo from '../../images/logo.png'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
-
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../Components/auth';
+import axios from 'axios';
+import logo from '../../images/logo.png'
 import "./style.css"
+
 
 export default function Login() {
   const [inputType, setInputType] = useState("password");
+  const [data, setData] = useState({})
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   const togglePassword = () => {
     if (inputType === "password") {
@@ -14,6 +22,20 @@ export default function Login() {
       setInputType("password");
     }
   };
+
+  const auth = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    axios.post("https://fakestoreapi.com/auth/login", data)
+      .then(res => {
+        auth.login(res.data.token);
+        navigate('/');
+      })
+      .catch(error => console.log(error))
+  }
+
   return (
     <div className='login_container'>
       <div className='main_login_container'>
@@ -23,8 +45,8 @@ export default function Login() {
         </div>
 
         <div >
-          <form className='login_inputs_container'>
-            <input type="text" placeholder="Email Address" />
+          <form className='login_inputs_container' onSubmit={handleLogin}>
+            <input type="text" placeholder="Username" name='username' required onChange={handleChange} />
             <div className='login_pw_input'>
               <input
                 className="input"
@@ -32,6 +54,7 @@ export default function Login() {
                 type={inputType}
                 placeholder="Password"
                 required
+                onChange={handleChange}
               />
               {inputType === "password" ? (
                 <AiOutlineEye
@@ -46,7 +69,7 @@ export default function Login() {
               )}
             </div>
 
-            <button className='login_btn'>
+            <button className='login_btn' type='submit'>
               Login
             </button>
             <div className='login-foot'>
