@@ -29,7 +29,7 @@ export default function CategorySubmenu() {
           return (
             <li>
               <NavLink
-                to={"/category"}
+                to={`/categories/${category}`}
                 className={({ isActive }) =>
                   isActive ? "active" : undefined
                 }
@@ -39,8 +39,6 @@ export default function CategorySubmenu() {
             </li>
           )
         })}
-
-
       </ul>
 
     </div>

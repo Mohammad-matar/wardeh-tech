@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { AiFillStar } from 'react-icons/ai'
+import ProductCard from '../../Components/ProductCard'
 import "./style.css"
 
 export default function Home() {
@@ -24,41 +24,7 @@ export default function Home() {
     <div className='home_main_container'>
       {isloading ? <> is loading...</> : data.map((product) => {
         return (
-          <div className='Home__container'>
-            <div className='home_card_container'>
-              <img src={product.image} alt="img" />
-              <div className='category'>
-                <h3>
-                  {product.category}
-                </h3>
-              </div>
-            </div>
-
-            <div className='home_card_description'>
-              <div className='card_description'>
-                <p className='product_title'> {product.title} </p>
-                <p> ${product.price} </p>
-              </div>
-
-              <div className='card_description'>
-                <div>
-                  <p className='home__rating'> Rating </p>
-                </div>
-
-                <div className='rating-stars'>
-                  <div className='stars'>
-                    <AiFillStar className={product.rating.rate >= 1 ? "on" : "off"} />
-                    <AiFillStar className={product.rating.rate >= 2 ? "on" : "off"} />
-                    <AiFillStar className={product.rating.rate >= 3 ? "on" : "off"} />
-                    <AiFillStar className={product.rating.rate >= 4 ? "on" : "off"} />
-                    <AiFillStar className={product.rating.rate >= 5 ? "on" : "off"} />
-                  </div>
-                  <p> {product.rating.count} rating count </p>
-                </div>
-
-              </div>
-            </div>
-          </div>
+          <ProductCard product={product} />
         )
       })}
 

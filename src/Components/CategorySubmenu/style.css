@@ -36,3 +36,7 @@
     color: #fff;
     text-transform: capitalize;
 }
+
+.categorysubmenu_container a.active {
+    color: #6ED9A1;
+}
