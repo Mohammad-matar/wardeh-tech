@@ -5,7 +5,8 @@
     background-color: #29363F;
     height: 100vh;
 }
-.main_login_container{
+
+.main_login_container {
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -60,12 +61,13 @@
 
 .login_pw_input {
     width: 100%;
+    position: relative;
 }
 
 .login-eye {
     position: absolute;
-    right: 35%;
-    bottom: 43%;
+    right: 24px;
+    top: 23px;
     color: #FFFFFF;
 }
 
