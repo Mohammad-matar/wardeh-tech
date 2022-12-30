@@ -1,8 +1,8 @@
 .categorysubmenu_container {
     display: flex;
-    background-color: #33414B;
+    background-color: #29363F;
     border-top: 0;
-    border-bottom: 1px solid white;
+    border-bottom: 0.5px solid #DFF5EA50;
     height: 60px;
     padding: 0px 70px;
     align-items: center;
@@ -15,6 +15,7 @@
 .categorysubmenu_container hr {
     height: 40px;
     width: 0;
+    opacity: 0.5;
 }
 
 .categorysubmenu_container ul {
