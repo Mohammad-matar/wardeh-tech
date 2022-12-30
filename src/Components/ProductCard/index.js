@@ -1,9 +1,16 @@
 import React from 'react'
 import { AiFillStar } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
 
 export default function ProductCard({ product, withCategory = true }) {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/products/${product.id}`)
+  }
+
   return (
-    <div className='Home__container'>
+    <div className='Home__container' onClick={handleClick}>
       <div className='home_card_container'>
         <img src={product.image} alt="img" />
         {withCategory && (

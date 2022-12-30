@@ -22,7 +22,20 @@ export default function Home() {
   }
   return (
     <div className='home_main_container'>
-      {isloading ? <> is loading...</> : data.map((product) => {
+      {isloading ? (
+        <div className='lds-main '>
+          <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      ) : data.map((product) => {
         return (
           <ProductCard product={product} />
         )

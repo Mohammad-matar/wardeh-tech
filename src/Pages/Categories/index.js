@@ -30,17 +30,19 @@ export default function Categories() {
       </div>
       <div className='home_main_container'>
         {isloading ? (
-        <div class="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      ) : data.map((product) => {
+          <div className='lds-main '>
+            <div class="lds-roller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        ) : data.map((product) => {
           return (
             <ProductCard product={product} withCategory={false} />
           )
